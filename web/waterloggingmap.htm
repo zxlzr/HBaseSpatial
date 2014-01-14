@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>内涝查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <link href="http://api.map.baidu.com/lbsapi/duanzu/css/bootstrap.css" rel="stylesheet">
+    <link href="http://api.map.baidu.com/lbsapi/duanzu/css/main.css" rel="stylesheet">
+	
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css">
+<style type="text/css">
+.BMap_mask{background:transparent url(about:blank);}.BMap_noscreen{display:none;}.BMap_button{cursor:pointer;}.BMap_zoomer{background-image:url(http://api.map.baidu.com/images/mapctrls1d3.gif);background-repeat:no-repeat;overflow:hidden;font-size:1px;position:absolute;width:7px;height:7px;}.BMap_stdMpCtrl div{position:absolute;}.BMap_stdMpPan{width:44px;height:44px;overflow:hidden;background:url(http://api.map.baidu.com/images/mapctrls2d0.png) no-repeat;}.BMap_ie6 .BMap_stdMpPan{background:none;}.BMap_ie6 .BMap_smcbg{left:0;width:44px;height:464px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://api.map.baidu.com/images/mapctrls2d0.png');}.BMap_ie6 .BMap_stdMpPanBg{z-index:-1;}.BMap_stdMpPan .BMap_button{height:15px;width:15px;}.BMap_panN,.BMap_panW,.BMap_panE,.BMap_panS{overflow:hidden;}.BMap_panN{left:14px;top:0;}.BMap_panW{left:1px;top:12px;}.BMap_panE{left:27px;top:12px;}.BMap_panS{left:14px;top:25px;}.BMap_stdMpZoom{top:45px;overflow:hidden;}.BMap_stdMpZoom .BMap_button{width:22px;height:21px;left:12px;overflow:hidden;background-image:url(http://api.map.baidu.com/images/mapctrls2d0.png);background-repeat:no-repeat;z-index:10;}.BMap_ie6 .BMap_stdMpZoom .BMap_button{background:none;}.BMap_stdMpZoomIn{background-position:0 -221px;}.BMap_stdMpZoomOut{background-position:0 -265px;}.BMap_ie6 .BMap_stdMpZoomIn div{left:0;top:-221px;}.BMap_ie6 .BMap_stdMpZoomOut div{left:0;top:-265px;}.BMap_stdMpType4 .BMap_stdMpZoom .BMap_button{left:0;overflow:hidden;background:-webkit-gradient(linear,50% 0,50% 100%,from(rgba(255,255,255,0.85)),to(rgba(217,217,217,0.85)));z-index:10;-webkit-border-radius:22px;width:34px;height:34px;border:1px solid rgba(255,255,255,0.5);-webkit-box-shadow:0 2px 3.6px #CCC;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-sizing:border-box;}.BMap_stdMpType4 .BMap_smcbg{position:static;background:url(http://api.map.baidu.com/images/mapctrls2d0_mb.png) 0 0 no-repeat;-webkit-background-size:24px 32px;}.BMap_stdMpType4 .BMap_stdMpZoomIn{background-position:0 0;}.BMap_stdMpType4 .BMap_stdMpZoomIn .BMap_smcbg{width:24px;height:24px;background-position:0 0;}.BMap_stdMpType4 .BMap_stdMpZoomOut{background-position:0 0;}.BMap_stdMpType4 .BMap_stdMpZoomOut .BMap_smcbg{width:24px;height:6px;background-position:0 -25px;}.BMap_stdMpSlider{width:37px;top:18px;}.BMap_stdMpSliderBgTop{left:18px;width:10px;overflow:hidden;background:url(http://api.map.baidu.com/images/mapctrls2d0.png) no-repeat -23px -226px;}.BMap_stdMpSliderBgBot{left:19px;height:8px;width:10px;top:124px;overflow:hidden;background:url(http://api.map.baidu.com/images/mapctrls2d0.png) no-repeat -33px bottom;}.BMap_ie6 .BMap_stdMpSliderBgTop,.BMap_ie6 .BMap_stdMpSliderBgBot{background:none;}.BMap_ie6 .BMap_stdMpSliderBgTop div{left:-23px;top:-226px;}.BMap_ie6 .BMap_stdMpSliderBgBot div{left:-33px;bottom:0;}.BMap_stdMpSliderMask{height:100%;width:24px;left:10px;cursor:pointer;}.BMap_stdMpSliderBar{height:11px;width:19px;left:13px;top:80px;overflow:hidden;background:url(http://api.map.baidu.com/images/mapctrls2d0.png) no-repeat 0 -309px;}.BMap_stdMpSliderBar.h{background:url(http://api.map.baidu.com/images/mapctrls2d0.png) no-repeat 0 -320px;}.BMap_ie6 .BMap_stdMpSliderBar,.BMap_ie6 .BMap_stdMpSliderBar.h{background:none;}.BMap_ie6 .BMap_stdMpSliderBar div{top:-309px;}.BMap_ie6 .BMap_stdMpSliderBar.h div{top:-320px;}.BMap_zlSt,.BMap_zlCity,.BMap_zlProv,.BMap_zlCountry{position:absolute;left:34px;height:21px;width:28px;background-image:url(http://api.map.baidu.com/images/mapctrls2d0.png);background-repeat:no-repeat;font-size:0;cursor:pointer;}.BMap_ie6 .BMap_zlSt,.BMap_ie6 .BMap_zlCity,.BMap_ie6 .BMap_zlProv,.BMap_ie6 .BMap_zlCountry{background:none;overflow:hidden;}.BMap_zlHolder{display:none;position:absolute;top:0;}.BMap_zlHolder.hvr{display:block;}.BMap_zlSt{background-position:0 -380px;top:21px;}.BMap_zlCity{background-position:0 -401px;top:57px;}.BMap_zlProv{background-position:0 -422px;top:81px;}.BMap_zlCountry{background-position:0 -443px;top:105px;}.BMap_ie6 .BMap_zlSt div{top:-380px;}.BMap_ie6 .BMap_zlCity div{top:-401px;}.BMap_ie6 .BMap_zlProv div{top:-422px;}.BMap_ie6 .BMap_zlCountry div{top:-443px;}.BMap_stdMpType1 .BMap_stdMpSlider,.BMap_stdMpType2 .BMap_stdMpSlider,.BMap_stdMpType3 .BMap_stdMpSlider,.BMap_stdMpType4 .BMap_stdMpSlider,.BMap_stdMpType2 .BMap_stdMpZoom,.BMap_stdMpType3 .BMap_stdMpPan,.BMap_stdMpType4 .BMap_stdMpPan{display:none;}.BMap_stdMpType3 .BMap_stdMpZoom{top:0;}.BMap_stdMpType4 .BMap_stdMpZoom{top:0;}.BMap_cpyCtrl a{font-size:11px;color:#7979CC;}.BMap_scaleCtrl{height:23px;overflow:hidden;}.BMap_scaleCtrl div.BMap_scaleTxt{font-size:11px;font-family:Arial,sans-serif;}.BMap_scaleCtrl div{position:absolute;overflow:hidden;}.BMap_scaleHBar img,.BMap_scaleLBar img,.BMap_scaleRBar img{position:absolute;width:37px;height:442px;left:0;}.BMap_scaleHBar{width:100%;height:5px;font-size:0;bottom:0;}.BMap_scaleHBar img{top:-437px;width:100%;}.BMap_scaleLBar,.BMap_scaleRBar{width:3px;height:9px;bottom:0;font-size:0;z-index:1;}.BMap_scaleLBar img{top:-427px;left:0;}.BMap_scaleRBar img{top:-427px;left:-5px;}.BMap_scaleLBar{left:0;}.BMap_scaleRBar{right:0;}.BMap_scaleTxt{text-align:center;width:100%;cursor:default;line-height:18px;}.BMap_omCtrl{background-color:#fff;overflow:hidden;}.BMap_omOutFrame{position:absolute;width:100%;height:100%;left:0;top:0;}.BMap_omInnFrame{position:absolute;border:1px solid #999;background-color:#ccc;overflow:hidden;}.BMap_omMapContainer{position:absolute;overflow:hidden;width:100%;height:100%;left:0;top:0;}.BMap_omViewMv{border-width:1px;border-style:solid;border-left-color:#84b0df;border-top-color:#adcff4;border-right-color:#274b8b;border-bottom-color:#274b8b;position:absolute;z-index:600;}.BMap_omViewInnFrame{border:1px solid #3e6bb8;}.BMap_omViewMask{width:1000px;height:1000px;position:absolute;left:0;top:0;background-color:#68c;opacity:.2;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=20);}.BMap_omBtn{height:13px;width:13px;position:absolute;cursor:pointer;overflow:hidden;background:url(http://api.map.baidu.com/images/mapctrls1d3.gif) no-repeat;z-index:1210;}.anchorBR .BMap_omOutFrame{border-top:1px solid #999;border-left:1px solid #999;}.quad4 .BMap_omBtn{background-position:-26px -27px;}.quad4 .BMap_omBtn.hover{background-position:0 -27px;}.quad4 .BMap_omBtn.BMap_omBtnClosed{background-position:-39px -27px;}.quad4 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:-13px -27px;}.anchorTR .BMap_omOutFrame{border-bottom:1px solid #999;border-left:1px solid #999;}.quad1 .BMap_omBtn{background-position:-39px -41px;}.quad1 .BMap_omBtn.hover{background-position:-13px -41px;}.quad1 .BMap_omBtn.BMap_omBtnClosed{background-position:-26px -41px;}.quad1 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:0 -41px;}.anchorBL .BMap_omOutFrame{border-top:1px solid #999;border-right:1px solid #999;}.quad3 .BMap_omBtn{background-position:-27px -40px;}.quad3 .BMap_omBtn.hover{background-position:-1px -40px;}.quad3 .BMap_omBtn.BMap_omBtnClosed{background-position:-40px -40px;}.quad3 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:-14px -40px;}.anchorTL .BMap_omOutFrame{border-bottom:1px solid #999;border-right:1px solid #999;}.quad2 .BMap_omBtn{background-position:-40px -28px;}.quad2 .BMap_omBtn.hover{background-position:-14px -28px;}.quad2 .BMap_omBtn.BMap_omBtnClosed{background-position:-27px -28px;}.quad2 .BMap_omBtn.BMap_omBtnClosed.hover{background-position:-1px -28px;}.anchorR .BMap_omOutFrame{border-bottom:1px solid #999;border-left:1px solid #999;border-top:1px solid #999;}.anchorL .BMap_omOutFrame{border-bottom:1px solid #999;border-right:1px solid #999;border-top:1px solid #999;}.anchorB .BMap_omOutFrame{border-top:1px solid #999;border-left:1px solid #999;border-right:1px solid #999;}.anchorT .BMap_omOutFrame{border-bottom:1px solid #999;border-right:1px solid #999;border-left:1px solid #999;}.anchorNon .BMap_omOutFrame,.withOffset .BMap_omOutFrame{border:1px solid #999;}.BMap_zoomMask0,.BMap_zoomMask1{position:absolute;left:0;top:0;width:100%;height:100%;background:transparent url(http://api.map.baidu.com/images/blank.gif);z-index:1000;}.BMap_contextMenu{position:absolute;border-top:1px solid #adbfe4;border-left:1px solid #adbfe4;border-right:1px solid #8ba4d8;border-bottom:1px solid #8ba4d8;padding:0;margin:0;width:auto;visibility:hidden;background:#fff;z-index:10000000;}.BMap_cmShadow{position:absolute;background:#000;opacity:.3;filter:alpha(opacity=30);visibility:hidden;z-index:9000000;}div.BMap_cmDivider{border-bottom:1px solid #adbfe4;font-size:0;padding:1px;margin:0 6px;}div.BMap_cmFstItem{margin-top:2px;}div.BMap_cmLstItem{margin-bottom:2px;}.BMap_shadow img{border:0 none;margin:0;padding:0;position:absolute;height:370px;width:1144px;}.BMap_pop .BMap_top{border-top:1px solid #ababab;background-color:#fff;}.BMap_pop .BMap_center{border-left:1px solid #ababab;border-right:1px solid #ababab;background-color:#fff;}.BMap_pop .BMap_bottom{border-bottom:1px solid #ababab;background-color:#fff;}.BMap_shadow,.BMap_shadow img,.BMap_shadow div{-moz-user-select:none;-webkit-user-select:none;}.BMap_checkbox{background:url(http://api.map.baidu.com/images/mapctrls1d3.gif);vertical-align:middle;display:inline-block;width:11px;height:11px;margin-right:4px;background-position:-14px 90px;}.BMap_checkbox.checked{background-position:-2px 90px;}.BMap_pop .BMap_top img,.BMap_pop .BMap_center img,.BMap_pop .BMap_bottom img{display:none;}@media print{.BMap_noprint{display:none;}.BMap_noscreen{display:block;}.BMap_mask{background:none;}.BMap_pop .BMap_top img,.BMap_pop .BMap_center img,.BMap_pop .BMap_bottom img{display:block;}}.BMap_vectex{cursor:pointer;width:11px;height:11px;position:absolute;background-repeat:no-repeat;background-position:0 0;}.BMap_vectex_nodeT{background-image:url(http://api.map.baidu.com/images/nodeT.gif);}.BMap_vectex_node{background-image:url(http://api.map.baidu.com/images/node.gif);}
+
+
+.cityList{height: 320px;width:372px;overflow-y:auto;}
+    .sel_container{z-index:9999;font-size:12px;position:absolute;right:300px;top:0px;width:140px;background:rgba(255,255,255,0.8);height:30px;line-height:30px;padding:5px;}
+	 .map_popup {position: absolute;z-index: 200000;width: 382px;height: 344px;right:320px;top:40px;}
+    .map_popup .popup_main { background:#fff;border: 1px solid #8BA4D8;height: 30%;overflow: hidden;position: absolute;width: 100%;z-index: 2;}
+    .map_popup .title {background: url("http://map.baidu.com/img/popup_title.gif") repeat scroll 0 0 transparent;
+    color: #6688CC;font-size: 12px;font-weight: bold;height: 24px;line-height: 25px;padding-left: 7px;}
+    .map_popup button {background: url("http://map.baidu.com/img/popup_close.gif") no-repeat scroll 0 0 transparent;
+    border: 0 none;cursor: pointer;height: 12px;position: absolute;right: 4px;top: 6px;width: 12px;}
+
+
+</style><script src="./waterloggingmap_files/49_18_10_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/48_18_10_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/49_18_10_018.js" type="text/javascript" charset="utf-8"></script><link rel="stylesheet" type="text/css" href="./waterloggingmap_files/bmap_autocomplete.css"><script src="./waterloggingmap_files/99_36_11_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/98_36_11_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/98_36_11_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/49_18_10_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/98_36_11_018.js" type="text/javascript" charset="utf-8"></script><script src="./waterloggingmap_files/197_74_12_018.js" type="text/javascript" charset="utf-8"></script></head>
+
+<body>
+      <div id="pageHeader">
+        <div class="container">
+            <h1>内涝查询</h1>
+           
+        </div>
+    </div>
+    <div id="pageHeader">
+     
+		<div class="sel_container"><strong id="curCity">北京市</strong> [<a id="curCityText" href="javascript:void(0)">更换城市</a>]</div>
+	<div class="map_popup" id="cityList" style="display:none;">
+
+			
+		<div class="popup_main">
+			<div class="title">城市列表</div>
+			<div class="cityList" id="citylist_container"><div class="bmaplib_cityList" id="bmaplib_cityList_undefined"><dl><dt>支持查询的城市：</dt><dd><a href="javascript:void(0)" id="c1">北京</a><a href="javascript:void(0)" id="c2">上海</a><a href="javascript:void(0)" id="c3">天津</a><a href="javascript:void(0)" id="c4">杭州</a>
+			
+			<a href="javascript:void(0)" id="c5">成都</a>
+			<a href="javascript:void(0)" id="c6">武汉</a>
+			<a href="javascript:void(0)" id="c7">深圳</a>
+			<a href="javascript:void(0)" id="c8">广州</a>
+			<a href="javascript:void(0)" id="c9">石家庄</a>
+			<a href="javascript:void(0)" id="c10">厦门</a>
+			
+			
+			
+			</dd>
+			
+			
+			
+			
+			</dd></dl></div>
+			
+			
+			</div>
+			
+		</div>
+	</div>
+			
+		</div>
+	</div>
+		
+
+		
+		
+    </div>
+
+    <div id="pageMiddle">
+        <div class="container" id="header">
+            <div id="filterBox" style="display: none;">
+ <input type="search" id="title" class="input-large search-query" placeholder="输入内涝状况描述">	<br><br>
+	 <input type="search" id="address" class="input-large search-query" placeholder="输入地点">	<br><br>
+			    <span class="btn btn-primary" id="searchBtnadd">提交</span><br><br>
+			</div>
+            <div id="toolsBar" class="clearfix">
+                <div class="pull-left">
+                    <input type="search" id="keyword" class="input-large search-query" placeholder="输入检索关键字">
+                    <span class="btn btn-primary" id="searchBtn">搜索</span>
+					
+                </div>
+                <div class="row-fluid show-grid pull-left" id="selectedValue">
+                </div>
+                <div class="pull-right">
+          <span class="btn" id="toggleBtn">我来补充</span>
+            <span class="btn" id="chgMode">历史/实时</span>
+			
+                </div>
+            </div>
+        </div> <!-- /container -->
+    </div>
+
+    <div class="container" id="mainContainer">
+        <div class="bs-docs-example" id="listBox" style="display: none;">
+            <div id="listWrap">
+                <table class="table table-hover table-striped">
+                    <tbody id="listBoby">
+					
+					
+				
+					
+					
+					
+					</tbody>
+                </table>
+            </div>
+            <div id="pager" class="pagination text-center"><ul class="pages"><li class="pgNext disabled"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">|&lt;</a></li><li class="pgNext disabled"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">&lt;</a></li><li class="page-number active"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">1</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">2</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">3</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">4</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">5</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">6</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">7</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">8</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">9</a></li><li class="pgNext"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">&gt;</a></li><li class="pgNext"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">&gt;|</a></li></ul></div>
+        </div>
+    </div> <!-- /container -->
+
+    <div id="mapBox" style="height: 510px; display: block;">
+        <div id="map" class="pull-left" style="overflow: hidden; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;">
+		
+		
+		
+		
+		
+	
+		
+		
+		</div>
+        <div id="mapPanel" class="pull-right">
+            <div id="mapListWrap">
+                <table class="table table-hover">
+                    <tbody id="mapList"></tbody>
+                </table>
+            </div>
+            <div id="mapPager" class="pagination text-center"><ul class="pages"><li class="pgNext disabled"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">|&lt;</a></li><li class="pgNext disabled"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">&lt;</a></li><li class="page-number active"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">1</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">2</a></li><li class="page-number"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">3</a></li><li class="pgNext"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">&gt;</a></li><li class="pgNext"><a href="http://api.map.baidu.com/lbsapi/duanzu/###">&gt;|</a></li></ul></div>
+        </div>
+    </div>
+
+    <script src="./waterloggingmap_files/api" type="text/javascript"></script><script type="text/javascript" src="./waterloggingmap_files/getscript"></script>
+    <script type="text/javascript" src="./waterloggingmap_files/SearchInfoWindow_min.js"></script>
+    <script type="text/javascript" src="./waterloggingmap_files/jquery.js"></script>
+    <script src="./waterloggingmap_files/jquery.pager.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./waterloggingmap_files/bootstrap.js"></script>
+    <script type="text/javascript" src="./waterloggingmap_files/main.js"></script>
+    <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F59df2806844f63df2dca6881f0f4b7a1' type='text/javascript'%3E%3C/script%3E"));
+    </script><script src="./waterloggingmap_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=59df2806844f63df2dca6881f0f4b7a1" target="_blank"><img border="0" src="./waterloggingmap_files/21.gif" width="20" height="20"></a>
+<script>
+// 给城市点击时，添加相关操作
+/*
+myCl.addEventListener("cityclick", function(e) {
+	// 修改当前城市显示
+	document.getElementById("curCity").innerHTML = e.name;
+	var cl = document.getElementById("cityList");
+	document.write("<xmp>"+cl.innerHTML+"</xmp>");
+	
+	
+
+
+	// 点击后隐藏城市列表
+	document.getElementById("cityList").style.display = "none";
+});
+
+*/
+
+         $("#c1").click(function () {
+                //代码 
+             searchAction($("#c1").text());
+			 document.getElementById("curCity").innerHTML=$("#c1").text();
+	document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c2").click(function () {
+                //代码 
+             searchAction($("#c2").text());
+			 document.getElementById("curCity").innerHTML=$("#c2").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c3").click(function () {
+                //代码 
+             searchAction($("#c3").text());
+	document.getElementById("curCity").innerHTML=$("#c3").text();
+					document.getElementById("cityList").style.display = "none";
+            });
+			  $("#c4").click(function () {
+                //代码 
+             searchAction($("#c4").text());
+			 document.getElementById("curCity").innerHTML=$("#c4").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c5").click(function () {
+                //代码 
+             searchAction($("#c5").text());
+			 document.getElementById("curCity").innerHTML=$("#c5").text();
+	
+					document.getElementById("cityList").style.display = "none";
+            });
+			  $("#c6").click(function () {
+                //代码 
+             searchAction($("#c6").text());
+			 document.getElementById("curCity").innerHTML=$("#c6").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c7").click(function () {
+                //代码 
+             searchAction($("#c7").text());
+			 document.getElementById("curCity").innerHTML=$("#c7").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c8").click(function () {
+                //代码 
+             searchAction($("#c8").text());
+			 document.getElementById("curCity").innerHTML=$("#c8").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c9").click(function () {
+                //代码 
+             searchAction($("#c9").text());
+			 document.getElementById("curCity").innerHTML=$("#c9").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+			  $("#c10").click(function () {
+                //代码 
+             searchAction($("#c10").text());
+			 document.getElementById("curCity").innerHTML=$("#c10").text();
+		document.getElementById("cityList").style.display = "none";
+				
+            });
+
+
+
+
+
+// 给“更换城市”链接添加点击操作
+document.getElementById("curCityText").onclick = function() {
+	var cl = document.getElementById("cityList");
+
+	if (cl.style.display == "none") {
+		cl.style.display = "";
+	} else {
+		cl.style.display = "none";
+	}	
+};
+
+// 给城市列表上的关闭按钮添加点击操作
+document.getElementById("popup_close").onclick = function() {
+	var cl = document.getElementById("cityList");
+	if (cl.style.display == "none") {
+		cl.style.display = "";
+	} else {
+		cl.style.display = "none";
+	}	
+};
+</script>
+
+<div class="tangram-suggestion-main" id="tangram-suggestion--TANGRAM__6m-main" data-guid="TANGRAM__6m" style="position: absolute; display: none; left: 234px; top: 105px; width: 232px;"><div id="tangram-suggestion--TANGRAM__6m" class="tangram-suggestion" style="position:relative; top:0px; left:0px"></div></div><div class="tangram-suggestion-main" id="tangram-suggestion--TANGRAM__76-main" data-guid="TANGRAM__76" style="position: absolute; display: none; left: 0px; top: -1px;"><div id="tangram-suggestion--TANGRAM__76" class="tangram-suggestion" style="position:relative; top:0px; left:0px"></div></div></body></html>
